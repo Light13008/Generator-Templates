@@ -1,0 +1,89 @@
+asyncapi: 2.6.0
+info:
+  title: Example PDF Generation Service
+  version: 1.0.0
+  description: This service demonstrates how to generate a PDF using AsyncAPI.
+  termsOfService: https://example.com/terms
+  contact:
+    name: Support Team
+    email: support@example.com
+    url: https://example.com/support
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  production:
+    url: production.example.com
+    protocol: mqtt
+  development:
+    url: dev.example.com
+    protocol: mqtt
+
+channels:
+  user/registration:
+    description: Channel for user registration events.
+    publish:
+      operationId: registerUser 
+      summary: Publish user registration data.
+      message:
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            username:
+              type: string
+              description: The username of the user.
+            email:
+              type: string
+              description: The email address of the user.
+            password:
+              type: string
+              description: The password for the user account.
+
+  user/login:
+    description: Channel for user login events.
+    publish:
+      operationId: loginUser 
+      summary: Publish user login data.
+      message:
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            username:
+              type: string
+              description: The username of the user.
+            password:
+              type: string
+              description: The password for the user account.
+
+components:
+  messages:
+    UserRegistration:
+      contentType: application/json
+      payload:
+        type: object
+        properties:
+          username:
+            type: string
+            description: The username of the user.
+          email:
+            type: string
+            description: The email address of the user.
+          password:
+            type: string
+            description: The password for the user account.
+
+    UserLogin:
+      contentType: application/json
+      payload:
+        type: object
+        properties:
+          username:
+            type: string
+            description: The username of the user.
+          password:
+            type: string
+            description: The password for the user account.
+

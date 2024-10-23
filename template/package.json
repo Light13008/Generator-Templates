@@ -1,0 +1,31 @@
+{
+  "name": "pdf-template",
+  "version": "1.0.0",
+  "description": "A PDF template for the AsyncAPI generator",
+  "test:generate": "asyncapi generate fromTemplate test/fixtures/asyncapi.yml ./ --output test/project --force-write --param server=dev",
+  "generator": {
+    "renderer": "react",
+    "apiVersion": "v1",
+    "generator": ">=1.10.0 <2.0.0",
+      "parameters": {
+            "server": {
+              "description": "The server you want to use in the code.",
+              "required": true
+            }
+    "supportedProtocols": [
+      "mqtt"
+    ],
+    "hooks": [
+      "./hooks/generateExtraFormats.js"
+    ]
+  },
+  "dependencies": {
+    "@asyncapi/generator": "^2.4.1",
+    "@asyncapi/generator-react-sdk": "^0.2.25",
+    "puppeteer": "^10.0.0"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.0"
+  },
+  
+}

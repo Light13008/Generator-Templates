@@ -1,0 +1,23 @@
+{
+  "name": "python-mqtt-client-template",
+  "version": "0.0.1",
+  "description": "A template that generates a Python MQTT client using MQTT.",
+  "generator": {
+    "renderer": "react",
+    "apiVersion": "v1",
+    "generator": ">=1.10.0 <2.0.0",
+    "supportedProtocols": ["mqtt"],
+    "parameters": {
+      "server": {
+        "description": "The server you want to use in the code.",
+        "required": true
+      }
+    }
+  },
+  "dependencies": {
+    "@asyncapi/generator-react-sdk": "^0.2.25"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.0"
+  }
+}
